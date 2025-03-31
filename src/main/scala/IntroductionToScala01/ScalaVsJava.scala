@@ -1,4 +1,4 @@
-package IntroductionToScala
+package IntroductionToScala01
 
 object ScalaVsJava {
   /*
