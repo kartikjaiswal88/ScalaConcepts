@@ -15,7 +15,7 @@ trait Car05 extends Any {
   }
 }
 
-class Mercedes(val x: Int) extends AnyVal with Car05 {
+class Mercedes05(val x: Int) extends AnyVal with Car05 {
   // val y = 5        //Field definition is not allowed in value class, we can only define the methods
   def hello(): Unit = {
     println("Hello Buddy!")
@@ -25,7 +25,7 @@ class Mercedes(val x: Int) extends AnyVal with Car05 {
 
 object Trait05 {
   def main(args: Array[String]): Unit = {
-    val m1 = new Mercedes(6)
+    val m1 = new Mercedes05(6)
     m1.print
   }
 

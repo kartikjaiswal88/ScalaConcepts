@@ -17,7 +17,7 @@ trait Car04 { // If you extend the Car04 then make sure to extend the Vehicle04 
   }
 }
 
-class Mercedes extends Vehicale04 with Car04 with FourWheeler04 {
+class Mercedes04 extends Vehicale04 with Car04 with FourWheeler04 {
 
 }
 
