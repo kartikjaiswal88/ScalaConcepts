@@ -16,8 +16,7 @@ object Clousure02 {
 
   val div = 2
   val isEven: Int => Boolean = (n: Int) => n % div == 0
-
-
+  
   def evenOrOdd(f: Int => Boolean, n: Int): String = {
     if (f(n)) "Even Number"
     else "Odd Number"
