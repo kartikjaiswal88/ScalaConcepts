@@ -4,19 +4,28 @@ class demoClass {
   val x = 5
   val y = 6
 
-  def addNumbers() = x + y
+  def addNumbers(): Int = x + y
 
   println(s"x is:${x} and y is:${y}")
 
-  val z = addNumbers()
-  println("Value of z is:",z)
+  val z: Int = addNumbers()
+  println("Value of z is:", z)
 }
 
 object Constructor01 {
   /*
-   Constructor are of two types: Primary and Auxillary.
-   Constructor will execute everything in the class.
-   */
+    Scala has two types of constructors:
+    1. Primary Constructor
+    2. Auxiliary Constructor
+
+    The primary constructor is defined as part of the class definition.
+    The statements written directly inside the class body are executed
+    when an object is created.
+
+    An auxiliary constructor is defined using `this` and must eventually
+    call the primary constructor.
+*/
+
 
   def main(args: Array[String]): Unit = {
     println("Hello World")

@@ -1,5 +1,35 @@
 package SingletonObj_CompanionClassAndObj_CaseClassesAndO06
 
+/*
+ * Companion Class and Companion Object:
+ *
+ * When a class and an object have the same name and are defined
+ * in the same source file, they are called a Companion Class
+ * and Companion Object.
+ *
+ * Example:
+ *
+ *   class Student { ... }
+ *   object Student { ... }
+ *
+ * The companion class and companion object can access each
+ * other's private members.
+ *
+ * Class:
+ *   - Used to create multiple instances using `new`.
+ *   - Contains instance members.
+ *
+ * Companion Object:
+ *   - Is a singleton object.
+ *   - Used to access members directly using the object name.
+ *   - Commonly used for functionality similar to Java's static
+ *     members, such as factory methods.
+ *
+ * A companion object can access the private members of its companion class,
+    and the companion class can access the private members of its companion object.
+    Code outside the companion relationship cannot directly access those private members.
+ */
+
 class CompanionClassAndObject01 {
   private var x = 6;
 
@@ -9,10 +39,6 @@ class CompanionClassAndObject01 {
 }
 
 object CompanionClassAndObject01 {
-  /*
-    Name of the class and Object is Same.
-    We can use each others variables and methods.
-   */
 
   var y = 4;
 

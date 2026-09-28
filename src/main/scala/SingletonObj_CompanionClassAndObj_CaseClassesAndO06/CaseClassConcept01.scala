@@ -1,5 +1,44 @@
 package SingletonObj_CompanionClassAndObj_CaseClassesAndO06
 
+/*
+ * Case Class:
+ *
+ * Interview Definition:
+ * A case class is a special Scala class mainly used for modeling
+ * immutable data. Scala automatically provides features such as
+ * apply, unapply, copy, equals, hashCode and toString.
+ *
+ * Example:
+ *   case class Car(name: String, model: String)
+ *
+ * Automatically provides:
+ *
+ * 1. apply()
+ *    - Allows object creation without `new`.
+ *    - Car("BMW", "520") internally uses Car.apply(...).
+ *
+ * 2. Constructor parameters are `val` by default.
+ *    - Can be read but cannot be reassigned.
+ *    - `var` can be explicitly used when mutability is required.
+ *
+ * 3. unapply()
+ *    - Used for extracting values during pattern matching.
+ *
+ * 4. copy()
+ *    - Creates a new object with selected fields modified.
+ *
+ * 5. equals() and hashCode()
+ *    - Provides value-based equality and hashing.
+ *
+ * 6. toString()
+ *    - Provides a readable representation of the object.
+ *
+ * Key Advantage:
+ *    Case classes make data modeling, pattern matching and
+ *    immutable data handling easier.
+ */
+
+
 case class Car(name: String, model: String) {
   val carName = name
   val carModel = model
@@ -11,17 +50,6 @@ case class Car(name: String, model: String) {
 
 
 object CaseClassConcept01 {
-  /*
-    Case Class = Regular class + Lot of Auto-generated extra code.
-    No need to write "new" Keyword, since "apply"(it create object using new keyword) method is auto generated in case class.
-    Biggest advantage of case class is, it supports pattern matching.
-    Constructor parameters are val by default, therefore mutator method is not generated and hence we cannot change the value.
-    If Constructor parameters are explicitly mentioned var then we can change the value as mutator method will be auto generated.
-    Case class auto-generate unapply method, used for pattern matching.
-    Case class auto-generate copy method.
-    Case class auto-generate the equals and hashcode methods.
-    Case class auto-generate toString method.
-   */
 
   def main(args: Array[String]): Unit = {
     val bmw = new Car("BMW", "520")

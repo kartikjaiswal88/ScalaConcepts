@@ -1,10 +1,58 @@
 package Strings07
 
+/*
+ * String:
+ *
+ * Interview Definition:
+ * String in Scala represents an immutable sequence of characters.
+ * It is interoperable with Java's String class on the JVM.
+ *
+ * 1. Accessor Methods:
+ *    Methods used to retrieve information about an object.
+ *    Example: length returns the number of characters.
+ *
+ * 2. Concatenation:
+ *    Strings can be combined using `+` or the `concat` method.
+ *
+ * 3. Character Access:
+ *    Characters can be accessed using indexing or `charAt`.
+ *    Indexing starts from 0.
+ *
+ * 4. String Equality:
+ *    `equals` compares String contents.
+ *    Scala's `==` is null-safe and also performs content-based
+ *    equality for Strings.
+ *
+ * 5. isEmpty:
+ *    Checks whether the String contains zero characters.
+ *
+ * 6. printf:
+ *    Provides formatted output using format specifiers such as
+ *    `%s` for String, `%d` for integer and `%f` for floating-point.
+ *
+ * 7. Multiline String:
+ *    Triple quotes allow multiline Strings.
+ *    `stripMargin` removes the leading margin character.
+ *    `|` is the default margin character, but it can be customized.
+ *
+ * 8. String Interpolation:
+ *    `s`  → variable/expression interpolation.
+ *    `f`  → formatted interpolation.
+ *    `raw` → interpolation without processing escape sequences.
+ *
+ * 9. split:
+ *    Splits a String based on a delimiter/regular expression and
+ *    returns an Array of Strings.
+ *
+ * Key Points:
+ *    - String is immutable.
+ *    - Indexing starts from 0.
+ *    - Scala Strings support Java String methods.
+ *    - `==` is null-safe.
+ *    - `s`, `f` and `raw` are the main String interpolators.
+ */
+
 object StringConcept01 {
-  /*
-    String is collection of characters or numbers (array of characters).
-    Any method(length) which is used to get information about the object(greetings) is called Accessor Method.
-   */
 
   def main(args: Array[String]): Unit = {
     val greetings = "Hello World!"
@@ -31,7 +79,7 @@ object StringConcept01 {
     val varA = "Hello"
     val varB = "Hello"
     println(varA.equals(varB)) // Gives true if both the strings have same content
-    println(varA == varB) // Same as equals but does additional step. If varA and varB are not null.
+    println(varA == varB) // Scala's == is null-safe and generally delegates to equality comparison. For Strings, it compares content rather than reference identity.
 
     // isEmpty Method
     println(var1.isEmpty)

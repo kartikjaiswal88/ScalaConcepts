@@ -2,11 +2,293 @@ package PatternMatchingAndRegex08
 
 import scala.util.matching.Regex
 
+
+/*
+ * ================================================================
+ *                    PATTERN MATCHING & REGEX
+ * ================================================================
+ *
+ * Interview Definition:
+ * Pattern matching in Scala is a mechanism used to compare a value
+ * against different patterns and execute the corresponding branch.
+ * Unlike a traditional switch statement, Scala's `match` is an
+ * expression and can return a value.
+ *
+ *
+ * ================================================================
+ * 1. BASIC PATTERN MATCHING
+ * ================================================================
+ *
+ * Syntax:
+ *
+ *   expression match {
+ *     case pattern1 => result1
+ *     case pattern2 => result2
+ *     case _        => defaultResult
+ *   }
+ *
+ * Important:
+ *
+ * - `match` compares the input against cases from top to bottom.
+ * - The first matching case is executed.
+ * - `case _` is the wildcard pattern and acts as a default case.
+ * - `match` is an expression, so it can produce a value.
+ * - `return` is generally not required.
+ *
+ *
+ * ================================================================
+ * 2. CASE CLASS PATTERN MATCHING
+ * ================================================================
+ *
+ * Case classes work particularly well with pattern matching because
+ * Scala automatically generates an `unapply` method that allows the
+ * object's values to be extracted.
+ *
+ * Case-class pattern matching can:
+ *
+ * - Match specific field values.
+ * - Extract field values into variables.
+ * - Match different combinations of object data.
+ *
+ * Example concept:
+ *
+ *   A Car object can be matched based on its name and price.
+ *
+ * Important Case Class Features:
+ *
+ * - Constructor parameters are `val` by default.
+ * - `var` can be explicitly used when mutability is required.
+ * - `apply` is automatically generated for convenient object creation.
+ * - `unapply` supports pattern matching and value extraction.
+ * - `equals` and `hashCode` are automatically generated.
+ * - `toString` is automatically generated.
+ * - `copy` is automatically generated.
+ *
+ *
+ * ================================================================
+ * 3. REGULAR EXPRESSIONS
+ * ================================================================
+ *
+ * Interview Definition:
+ * A Regular Expression (Regex) is a pattern used to search,
+ * identify, extract, or validate text based on a defined rule.
+ *
+ * Scala provides regular-expression support through
+ * `scala.util.matching.Regex`.
+ *
+ * On the JVM, Scala Regex is built on Java's regular-expression
+ * facilities.
+ *
+ *
+ * ================================================================
+ * 4. CREATING A REGEX
+ * ================================================================
+ *
+ * A Regex can be created using:
+ *
+ * - The `Regex` class.
+ * - The `.r` extension method on a String.
+ *
+ * `.r` converts a String pattern into a Regex object.
+ *
+ *
+ * ================================================================
+ * 5. findFirstIn
+ * ================================================================
+ *
+ * `findFirstIn` searches for the first occurrence of a pattern
+ * inside a String.
+ *
+ * Return Type:
+ *
+ *   Option[String]
+ *
+ * Possible results:
+ *
+ * - `Some(value)` → a match was found.
+ * - `None`       → no match was found.
+ *
+ * Since the result is an Option, `getOrElse` can be used to provide
+ * a default value when no match is found.
+ *
+ *
+ * ================================================================
+ * 6. findAllIn
+ * ================================================================
+ *
+ * `findAllIn` searches for all occurrences of a pattern.
+ *
+ * It returns a `Regex.MatchIterator`.
+ *
+ * Common operations:
+ *
+ * - `foreach` → process every match.
+ * - `mkString` → combine all matches into a String.
+ * - `toArray` → convert matches into an Array.
+ *
+ *
+ * ================================================================
+ * 7. IMPORTANT REGEX SYMBOLS
+ * ================================================================
+ *
+ * `[0-9]`
+ *     Matches exactly one digit from 0 to 9.
+ *
+ * `+`
+ *     Matches one or more occurrences of the preceding pattern.
+ *
+ * `*`
+ *     Matches zero or more occurrences of the preceding pattern.
+ *
+ * `?`
+ *     Makes the preceding pattern optional, meaning zero or one
+ *     occurrence.
+ *
+ * `\d`
+ *     Represents a digit.
+ *
+ * `\.`
+ *     Represents a literal dot.
+ *     The dot normally has a special meaning in Regex, so it must
+ *     be escaped when matching an actual period.
+ *
+ * `(...)`
+ *     Creates a capturing group.
+ *
+ * `|`
+ *     Represents OR / alternatives.
+ *
+ *
+ * ================================================================
+ * 8. NUMBER REGEX
+ * ================================================================
+ *
+ * A pattern such as `[0-9]+` means:
+ *
+ *     one or more digits.
+ *
+ * Therefore it can match:
+ *
+ *     2
+ *     23
+ *     123
+ *     2026
+ *
+ * It does NOT mean "greater than one digit".
+ *
+ *
+ * ================================================================
+ * 9. CASE-SENSITIVE / CASE-INSENSITIVE MATCHING
+ * ================================================================
+ *
+ * Regex matching is case-sensitive by default.
+ *
+ * If both uppercase and lowercase forms should be accepted,
+ * alternatives can explicitly be provided using `|`.
+ *
+ * Example concept:
+ *
+ *     `(K|k)`
+ *
+ * means either `K` or `k`.
+ *
+ * This is not changing Regex into case-insensitive mode;
+ * it is explicitly defining two possible characters.
+ *
+ *
+ * ================================================================
+ * 10. RAW STRING FOR REGEX
+ * ================================================================
+ *
+ * Scala's triple-quoted String is useful for Regex patterns because
+ * backslashes do not need the same level of escaping required in
+ * ordinary String literals.
+ *
+ * This makes expressions containing `\d`, `\.` and similar patterns
+ * easier to read.
+ *
+ *
+ * ================================================================
+ * 11. getOrElse WITH REGEX
+ * ================================================================
+ *
+ * `findFirstIn` returns an Option.
+ *
+ * `getOrElse` allows a fallback value to be supplied when the result
+ * is `None`.
+ *
+ * This avoids directly accessing a potentially missing value.
+ *
+ *
+ * ================================================================
+ * 12. foreach WITH REGEX
+ * ================================================================
+ *
+ * `foreach` can be used on the result of `findAllIn` to process every
+ * matched occurrence individually.
+ *
+ *
+ * ================================================================
+ * 13. COMPLEX REGEX
+ * ================================================================
+ *
+ * A Regex can combine multiple operators to describe more complex
+ * patterns.
+ *
+ * For example, a decimal-number pattern can combine:
+ *
+ * - Optional negative sign
+ * - One or more digits
+ * - Optional decimal portion
+ * - A literal decimal point
+ *
+ * Such expressions are useful for extracting numbers from larger
+ * Strings.
+ *
+ *
+ * ================================================================
+ * KEY INTERVIEW POINTS
+ * ================================================================
+ *
+ * 1. `match` in Scala is an expression, not just a statement.
+ *
+ * 2. `case _` is the wildcard/default pattern.
+ *
+ * 3. Case classes support pattern matching through automatically
+ *    generated `unapply`.
+ *
+ * 4. `.r` converts a String pattern into a Regex.
+ *
+ * 5. `findFirstIn` returns `Option[String]`.
+ *
+ * 6. `findAllIn` returns a `Regex.MatchIterator`.
+ *
+ * 7. `Some` means a match was found; `None` means no match.
+ *
+ * 8. `getOrElse` provides a fallback for an Option.
+ *
+ * 9. `[0-9]+` means one or more digits.
+ *
+ * 10. `*` means zero or more occurrences.
+ *
+ * 11. `?` means zero or one occurrence / optional.
+ *
+ * 12. `|` represents OR.
+ *
+ * 13. Regex matching is case-sensitive by default.
+ *
+ * 14. Scala Regex is based on Java's regex facilities on the JVM.
+ *
+ * 15. Triple-quoted Strings are convenient for writing Regex
+ *     patterns containing backslashes.
+ *
+ */
+
 object PatternMatching {
   /*
   Matches sequence of Data:
   Syntax case =>
-       (parameter to MatchSSSS) match{
+       (parameter to Match) match{
          case 1=> return value
          case 2=> return value
         }

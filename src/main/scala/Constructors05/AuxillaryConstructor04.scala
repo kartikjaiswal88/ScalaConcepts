@@ -1,11 +1,34 @@
 package Constructors05
 
+/*
+ * Constructors in Scala:
+ *
+ * 1. Primary Constructor
+ *    - Defined as part of the class definition.
+ *    - A class has exactly one primary constructor.
+ *
+ * 2. Auxiliary Constructor
+ *    - Defined using `def this(...)`.
+ *    - A class can have zero or more auxiliary constructors.
+ *    - Every auxiliary constructor must eventually call
+ *      the primary constructor.
+ *
+ * Constructor execution:
+ *    Auxiliary Constructor
+ *           ↓
+ *    Primary Constructor
+ *           ↓
+ *    Class body executes
+ *           ↓
+ *    Auxiliary constructor body continues
+ */
+
 class demoClass3(a: Int, b: Double, c: String) {
   var x = a
   val y = b
   val z = c
 
-  def addNumbers() = x + y
+  def addNumbers(): Double = x + y
 
   println(s"Primary Constructor Says x is:${x}, y is:${y} and z is:${z}")
 
@@ -28,10 +51,6 @@ class demoClass3(a: Int, b: Double, c: String) {
 }
 
 object AuxillaryConstructor04 {
-  /*
-    Primary Constructor will always 1.
-    Auxillary Constructor equal 0 or more than it.
-   */
 
   def main(args: Array[String]): Unit = {
     println("Hello World")

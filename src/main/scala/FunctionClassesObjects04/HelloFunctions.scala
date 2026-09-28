@@ -2,11 +2,15 @@ package FunctionClassesObjects04
 
 object HelloFunctions {
   /*
-    Scala does not have static keyword.
-    In Scala Object all the methods are static.
-    Functions are re-usable piece of code.
-    In scala, it is not necessary for return keyword in function.
-    In function, if we are specifying the return keyword then it is mandatory to specify the return type of function but not vice-versa
+   1. Scala does not have static keyword.
+   2. Scala does not have the static keyword.
+      Methods defined inside a Scala object belong to that singleton object and can be accessed
+      through the object name, providing functionality similar to many uses of Java's static members.
+   3. Functions are re-usable piece of code.
+   4. In scala, it is not necessary for return keyword in function.
+   5. In function, if we are specifying the return keyword then it is mandatory to specify the return type of function but not vice-versa
+   6. A singleton object in Scala is an object for which only one instance exists within the application,
+      created using the object keyword rather than new.
    */
 
   def main(arg: Array[String]) = {
