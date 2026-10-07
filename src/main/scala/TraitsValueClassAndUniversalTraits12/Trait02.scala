@@ -7,13 +7,13 @@ trait FourWheeler02 {
 }
 
 trait Car02 {
-  def engine() = {
+  def engine(): Unit = {
     println("1000cc engine")
   }
 
-  def breaks()
+  def breaks(): Unit
 
-  def tyres: Unit = {
+  def tyres(): Unit = {
     println("Four tyres are present in Car02")
   }
 }
@@ -24,7 +24,7 @@ class Mercedes02 extends FourWheeler02 with Car02 {
     println("Disk Breaks...")
   }
 
-  override def tyres: Unit = super.tyres
+  override def tyres: Unit = super.tyres()
 
 }
 

@@ -2,6 +2,38 @@ package Arrays13And14
 
 import Array._
 
+/*
+   1. Array.concat:
+      Used to combine two or more Arrays into a single Array.
+      Example:
+      val arr = Array.concat(arr1, arr2)
+
+   2. range:
+      Used to create an Array containing a sequence of numbers.
+      range(start, end) → end is excluded.
+      Example:
+      range(1, 50) → 1 to 49
+
+      range(start, end, step) → numbers increase by step.
+      Example:
+      range(1, 51, 2) → 1, 3, 5, ..., 49
+
+   3. Array of Arrays:
+      An Array can contain other Arrays as its elements.
+      Example:
+      val arrOfArray = Array(arr1, arr2, arr3)
+
+   4. Traversing an Array of Arrays:
+      Use nested loops:
+      for (arr <- arrOfArray) {
+        for (element <- arr)
+          print(element + " ")
+      }
+
+      Outer loop → accesses each Array.
+      Inner loop → accesses elements of each Array.
+ */
+
 object Array05 {
 
   def main(args: Array[String]): Unit = {

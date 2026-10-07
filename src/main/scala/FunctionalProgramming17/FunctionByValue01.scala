@@ -2,12 +2,43 @@ package FunctionalProgramming17
 
 import java.lang.System
 
+/*
+ * ================================================================
+ *                    FUNCTION CALL BY VALUE
+ * ================================================================
+ *
+ * Interview Definition:
+ * Call-by-value is a parameter-passing mechanism in which the
+ * argument expression is evaluated first, and the resulting value
+ * is then passed to the function.
+ *
+ * Execution Order:
+ *
+ * 1. The argument expression is evaluated first.
+ *
+ * 2. If the argument itself is a function call, that function
+ *    executes first.
+ *
+ * 3. The returned value of that function is obtained.
+ *
+ * 4. That value is then passed as an argument to the outer
+ *    function.
+ *
+ * Therefore:
+ *
+ *     inner function → executes first
+ *     inner function → produces a value
+ *     outer function → receives that value
+ *
+ * This behavior is called Function Call by Value.
+ *
+ * Key Point:
+ *     In call-by-value, the function receives the evaluated
+ *     result/value of the argument expression.
+ *
+ */
+
 object FunctionByValue01 {
-  /*
-     1. It will first execute the inside function "time" and then it will execute the outside function "exec"
-     2. Since inside function "time" got executed first, it calls outside function "exec(valueOftime)" using the
-        value of inside function and it is called as "Function by Value"
-   */
 
   def main(args: Array[String]): Unit = {
     println("Main function:" + exec(time(), time2()))

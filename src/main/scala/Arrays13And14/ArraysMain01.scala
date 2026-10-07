@@ -1,19 +1,63 @@
 package Arrays13And14
 
+/*
+   1. Array:
+      Array is a collection of elements of the same type.
+      Arrays are mutable, meaning their elements can be changed.
+
+   2. Syntax:
+      var num: Array[Int] = new Array[Int](3)
+      or
+      var num = new Array[Int](3)
+      or
+      var num = Array(23, 55, 90)
+
+   3. The length/size of an Array cannot be changed after it
+      has been created.
+      However, the values of its elements can be changed.
+
+   4. Array elements are accessed using () in Scala:
+      num(0)
+      num(1)
+      instead of [] as commonly used in Java.
+      In Scala, num(0) is actually a method call:
+      num.apply(0)
+      Similarly:
+      num(0) = 10
+      internally corresponds to:
+      num.update(0, 10)
+
+   5. foreach is used to perform an operation on every element.
+      It returns Unit.
+      Example:
+      num.foreach(println)
+      It produces multiple printed outputs, but the return
+      value of foreach is Unit.
+
+   6. foreach can also be used to update an external variable:
+      var totalMarks = 0
+      marks.foreach(mark => totalMarks += mark)
+      Here totalMarks contains the final accumulated value,
+      but foreach itself still returns Unit.
+
+   7. map is used to transform every element and returns a
+      new collection.
+      Example:
+      val marks = Array(10, 20, 30)
+      val updatedMarks = marks.map(mark => mark + 1)
+      updatedMarks:
+      Array(11, 21, 31)
+
+   8. Array's length cannot be changed after creation, but its
+      elements can be modified because Array is mutable.
+      Example:
+      val marks = Array(10, 20, 30)
+      marks(0) = 50
+      Result:
+      Array(50, 20, 30)
+ */
+
 object ArraysMain01 {
-  /*
-     1. Array: Array is collection of some data type elements.
-     2. Syntax: var num:Array[Int] = new Array[Int](3) or
-            var num = new Array[Int](3) or
-            var num = new Array(23,55,90)
-     3. We cannot change the length of Array
-     4. For accessing the elements of scala we always use the () instead of [] like in Java as Scala is pure object Oriented
-        language and everything is defined as Object and we are calling the functions.
-     5. foreach can gives the multiple outputs, like foreach.marks(println)
-     6. foreach can also gives one final output, like foreach.marks(totalMarks += _)
-     7. But in case of map, you will always get the multiple output.
-     8. Array's length can't be changed after declaration or definition.
-   */
 
   def main(args: Array[String]): Unit = {
     var marks = Array(32, 34, 33)

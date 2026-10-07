@@ -3,11 +3,16 @@ package Arrays13And14
 object Array03 {
 
   /*
-    reduceLeft: Take first two elements of array from left and do some operation and
-                then take result and do operation with third element
-    reduceRight: Take first two elements of array from left and do some operation and
-                 then take result and do operation with third element
-   */
+   reduceLeft: Starts from the left side. Takes the first two
+               elements, applies the operation, then takes the
+               result and applies the operation with the next
+               element, continuing until the end.
+
+   reduceRight: Starts from the right side. Takes the last two
+                elements, applies the operation, then takes the
+                result and applies the operation with the previous
+                element, continuing until the beginning.
+*/
 
   def main(args: Array[String]): Unit = {
     var marks = Array(2, 3, 5, 6, 7, 5, 4, 2, 5, 9, 23, 34, 66, 54, 75)

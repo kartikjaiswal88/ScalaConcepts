@@ -8,7 +8,7 @@ object Array02 {
     4. If you want to do same operations on each element of an Array ------> Use Map(it knows we have to operate on each
        element, so it starts operating in parallel while foreach will execute one by one.)
     5. If you want to take the single output then use the foreach, like marks.foreach(totalMarks += _)
-    6. Map will always returns the new array and if you want to return new array in case of for loop then use yield
+    6. Map will always return the new array and if you want to return new array in case of for loop then use yield
    */
   def main(args: Array[String]): Unit = {
     val marks = Array(3, 6, 3, 4, 65, 33, 88, 34, 64, 76, 90)
